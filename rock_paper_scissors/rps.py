@@ -3,7 +3,19 @@
 import sys
 
 def rock_paper_scissors(n):
-  pass 
+  total_plays = []
+
+  def rps_plays(total_plays, plays, n):
+    if len(plays) == n:
+      total_plays.append(plays)
+    else:
+      for x in ['rock', 'paper', 'scissors']:
+        new_plays = plays.copy()
+        new_plays.append(x)
+        rps_plays(total_plays, new_plays, n)
+
+  rps_plays(total_plays, [], n)
+  return total_plays
 
 
 if __name__ == "__main__":

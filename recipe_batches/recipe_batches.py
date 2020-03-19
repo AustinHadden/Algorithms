@@ -3,7 +3,17 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  batches_made = None
+
+  for key, value in recipe.items():
+    if key in ingredients.keys():
+      batches_possible = ingredients[key] // value
+      if batches_made is None or batches_possible < batches_made:
+        batches_made = batches_possible
+    else:
+      batches_made = 0
+
+  return batches_made
 
 
 if __name__ == '__main__':
